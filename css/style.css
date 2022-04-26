@@ -4750,8 +4750,14 @@ h6 {
   padding: 20px 0;
 }
 
-.blog_item_section .single_blog_item .single_blog_img img {
+.blog_item_section .single_blog_item .single_blog_img {
   border-radius: 3rem 0.5rem 0 0;
+  overflow: hidden;
+}
+
+.blog_item_section .single_blog_item .single_blog_img img {
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 
 @media (max-width: 576px) {
@@ -4813,6 +4819,11 @@ h6 {
 .blog_item_section .single_blog_item:hover .btn_3::after {
   right: 2rem;
   background-color: #ff6426;
+}
+
+.blog_item_section .single_blog_item:hover .single_blog_img img {
+  -webkit-transform: scale(1.12);
+          transform: scale(1.12);
 }
 
 .blog_item_section .single_blog_img img {
