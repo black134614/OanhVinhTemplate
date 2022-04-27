@@ -191,16 +191,38 @@
       }
     });
   }
+
+
+  $(window).scroll(function () {
+    if ($(this).scrollTop() > 100) {
+      $('#toTopBtn').fadeIn();
+      $('#toTopBtn').css('bottom', '1vh');;
+    } else {
+      $('#toTopBtn').fadeOut();
+      $('#toTopBtn').css('bottom', '-16vh');
+    }
+  });
+
+  $('#toTopBtn').click(function () {
+    $(this).addClass("hide");
+    $('body,html').animate({
+      scrollTop: 0,
+    }, 900);
+    return false;
+  });
+
 }(jQuery));
 
 window.setInterval(function () {
   var url = getCurrent();
   //start animation
-  $('#banner_part_home').fadeTo(900, 0.2, function () {
-    $(this).css('background-image', 'url(' + url + ')');
-  }).fadeTo('slow', 1);
-}, 5000);
+  setTimeout(() => {
+    $('#banner_part_home').fadeTo(900, 0.2, function () {
+      $(this).css('background-image', 'url(' + url + ')');
+    }).fadeTo('slow', 1);
+  }, 4000)
 
+}, 2000);
 // We start with index of 1 because we want to skip the first image, 
 // Else we would be replacing it with the same image.
 var index = 1;
